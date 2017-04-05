@@ -10,6 +10,9 @@ TagManager:
   - backwardsButton
   - clockwiseButton
   - CounterClockwiseButton
+  - Enemy
+  - EnemySight
+  - EnemyRocket
   layers:
   - Default
   - TransparentFX
