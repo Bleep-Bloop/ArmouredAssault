@@ -7,6 +7,12 @@ public class PlayerHitbox : MonoBehaviour {
 	public TankController player;
 
 
+
+	void Awake()
+	{
+		
+	}
+
 	// Use this for initialization
 	void Start () {
 
@@ -27,6 +33,7 @@ public class PlayerHitbox : MonoBehaviour {
 		if (other.tag == "Rocket") {
 			player.Damage();
 			//Debug.Log ("You killed me");
+
 		}
 	}
 

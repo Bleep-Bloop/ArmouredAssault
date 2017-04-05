@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHitbox : MonoBehaviour {
+
+	public GameManager gameManager;
+	public Text scoreText;
 
 	public EnemyAI enemy;
 
@@ -11,6 +15,10 @@ public class EnemyHitbox : MonoBehaviour {
 
 		//
 		enemy = GetComponentInParent<EnemyAI>();
+		//score = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<Text> ();
+		gameManager = GameManager.FindObjectOfType<GameManager>();
+		scoreText = gameManager.GetComponentInChildren<Text> ();
+
 
 	}
 	
@@ -25,6 +33,8 @@ public class EnemyHitbox : MonoBehaviour {
 		if (other.tag == "PlayerRocket") {
 			enemy.kill ();
 			Debug.Log ("You killed me");
+			gameManager.addScore (100);
+
 		}
 		}
 

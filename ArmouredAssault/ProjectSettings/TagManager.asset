@@ -17,6 +17,8 @@ TagManager:
   - Rocket
   - PlayerRocket
   - PlayerHitbox
+  - GameManager
+  - GameManagerHolder
   layers:
   - Default
   - TransparentFX

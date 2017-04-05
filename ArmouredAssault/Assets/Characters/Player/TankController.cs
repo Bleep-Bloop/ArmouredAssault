@@ -18,6 +18,7 @@ public class TankController : MonoBehaviour
 	public Image joystickBackgroundImage; //temp public
 	public Image joystickImage; //temp public
 
+	public GameManager gameManager;
 
 	private string m_MovementAxisName = "Vertical";          // The name of the input axis for moving forward and back.
 	private string m_TurnAxisName = "Horizontal";              // The name of the input axis for turning.
@@ -76,7 +77,7 @@ public class TankController : MonoBehaviour
 		//m_MovementAxisName = "Vertical" + m_PlayerNumber;
 		//m_TurnAxisName = "Horizontal" + m_PlayerNumber;
 
-
+		gameManager = GetComponent<GameManager> ();
 
 
 
