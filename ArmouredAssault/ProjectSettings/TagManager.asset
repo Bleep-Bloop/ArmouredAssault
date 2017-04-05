@@ -13,6 +13,10 @@ TagManager:
   - Enemy
   - EnemySight
   - EnemyRocket
+  - EnemyHitbox
+  - Rocket
+  - PlayerRocket
+  - PlayerHitbox
   layers:
   - Default
   - TransparentFX

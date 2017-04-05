@@ -17,6 +17,10 @@ public class EnemyAI : MonoBehaviour
 
 	public bool playerInSight = false;
 
+	public bool isDead = false;
+
+	public EnemyAI enemy;
+
 	void Awake ()
 	{
 		// Set up the references.
@@ -25,9 +29,12 @@ public class EnemyAI : MonoBehaviour
 		//enemyHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
 
-		enemyShell = GameObject.FindGameObjectWithTag ("EnemyRocket").GetComponent<Rigidbody> ();
+		enemyShell = GameObject.FindGameObjectWithTag ("Rocket").GetComponent<Rigidbody> ();
 
 		triggerZone = GameObject.FindGameObjectWithTag ("EnemySight");
+
+		enemy = this;
+
 	}
 
 
@@ -45,6 +52,8 @@ public class EnemyAI : MonoBehaviour
 			// ... disable the nav mesh agent.
 		//	nav.enabled = false;
 		//}
+
+
 
 
 	} 
@@ -83,5 +92,16 @@ public class EnemyAI : MonoBehaviour
 		Debug.Log ("Fired");
 
 	}
+
+
+	public void kill()
+	{
+
+		Destroy (this.gameObject);
+		Debug.Log ("Killed hiim dead");
+		//Add particle effect and maybe spawn parts with outwards direction momentum
+	
+	}
+
 
 }

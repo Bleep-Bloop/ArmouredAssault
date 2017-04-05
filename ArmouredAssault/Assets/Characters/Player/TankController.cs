@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TankController : MonoBehaviour 
 {
@@ -30,6 +31,8 @@ public class TankController : MonoBehaviour
 
 	public int currentHealth = 3;
 
+	public MeshRenderer playerMesh;
+
 
 
 	//possibly temp
@@ -41,6 +44,7 @@ public class TankController : MonoBehaviour
 	{
 		m_Rigidbody = GetComponent<Rigidbody> ();
 
+		playerMesh = GetComponent<MeshRenderer> ();
 
 		//m_MovementAxisName = "Vertical";
 		//m_TurnAxisName = "Horizontal";
@@ -100,6 +104,10 @@ public class TankController : MonoBehaviour
 
 
 		HealthBar.sprite = HeartSprites[currentHealth];
+
+		if (currentHealth == 0) {
+			Death ();
+		}
 
 	}
 
@@ -214,8 +222,16 @@ public class TankController : MonoBehaviour
 		Debug.Log ("MOVING Back FROM BUTTON");
 	}
 
+	public void Damage()
+	{
+		currentHealth = currentHealth - 1;
+	}
 
-
+	public void Death()
+	{
+		Debug.Log ("YOU LOSE");
+		SceneManager.LoadScene ("MainMenuScene");
+	}
 
 
 

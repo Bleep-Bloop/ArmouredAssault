@@ -29,9 +29,12 @@ public class EnemySIght : MonoBehaviour {
 
 			Debug.Log ("Fire at player");
 
-			canFire = false;
 
 			thisEnemy.fire ();
+
+
+
+			canFire = false;
 
 			StartCoroutine (waiting ());
 

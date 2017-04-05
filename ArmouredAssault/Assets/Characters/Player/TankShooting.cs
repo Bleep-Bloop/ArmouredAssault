@@ -132,4 +132,17 @@ public class TankShooting : MonoBehaviour
 		fireButtonPressed = false;
 	}
 
+
+
+	public void OnCollisionEnter(Collision other)
+	{
+
+		if (other.gameObject.tag == "EnemyHitbox") {
+
+			Debug.Log ("Killed him");
+			Destroy (other.gameObject);
+		}
+
+	}
+
 }
