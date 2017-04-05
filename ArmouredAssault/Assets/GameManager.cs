@@ -5,7 +5,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+	public int waveSize;
+	public int enemiesLeft;
+
+	public Transform enemyPrefab;
+
 	public int score;
+	public int count;
 
 	public Text scoreText;
 
@@ -17,6 +23,7 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad (transform.gameObject);
 		scoreText = GetComponentInChildren<Text> ();
 		blank = " ";
+		waveSize = 2;
 	}
 
 
@@ -34,6 +41,23 @@ public class GameManager : MonoBehaviour {
 		scoreText.text = score.ToString();
 
 
+		if (count == waveSize) {
+			Debug.Log ("Sending more enemies");
+
+
+
+			for (int i = 0; i < 4; i++)
+			{
+				Debug.Log ("Spawning an enemy");
+				Instantiate(enemyPrefab, new Vector3(i * 2.0F, 0, 0), Quaternion.identity);
+			}
+
+			//reset count
+			count = 0;
+
+		}
+
+
 	}
 
 
@@ -41,6 +65,14 @@ public class GameManager : MonoBehaviour {
 	{
 		score = score + incomingScore;
 	}
+
+	public void addCount()
+	{
+		count = count + 1;
+	}
+
+
+
 
 
 }

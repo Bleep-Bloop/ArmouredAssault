@@ -34,6 +34,7 @@ public class EnemyHitbox : MonoBehaviour {
 			enemy.kill ();
 			Debug.Log ("You killed me");
 			gameManager.addScore (100);
+			gameManager.addCount();
 
 		}
 		}
