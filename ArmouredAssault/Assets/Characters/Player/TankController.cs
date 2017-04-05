@@ -25,6 +25,11 @@ public class TankController : MonoBehaviour
 	private float m_TurnInputValue;             // The current value of the turn input.
 	//private float m_OriginalPitch;              // The pitch of the audio source at the start of the scene.
 
+	public Sprite[] HeartSprites;
+	public Image HealthBar;
+
+	public int currentHealth = 3;
+
 
 
 	//possibly temp
@@ -69,6 +74,8 @@ public class TankController : MonoBehaviour
 
 
 
+
+
 	//	joystickBackgroundImage = GameObject.FindWithTag ("MovementJoystickContainer").GetComponent<Image> ();
 	//	joystickImage = GameObject.FindWithTag ("MovementJoystick").GetComponent<Image> ();
 
@@ -90,6 +97,9 @@ public class TankController : MonoBehaviour
 		m_TurnInputValue = Input.GetAxis (m_TurnAxisName);
 
 		EngineAudio ();
+
+
+		HealthBar.sprite = HeartSprites[currentHealth];
 
 	}
 
