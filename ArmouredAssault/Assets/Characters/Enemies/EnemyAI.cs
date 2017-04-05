@@ -8,34 +8,36 @@ public class EnemyAI : MonoBehaviour
 	//PlayerHealth playerHealth;      // Reference to the player's health.
 	//EnemyHealth enemyHealth;        // Reference to this enemy's health.
 	public NavMeshAgent nav;               // Reference to the nav mesh agent.
-
 	public GameObject triggerZone;
+	public Rigidbody enemyShell;  // Item that is fired from the tank's cannon
+	public Transform FireTransform;  //  Empty GameObject Transform to spawn shells for firing
+	public bool playerInSight = false; // Triggerbox to spot enemy (change to raycast)
+	public EnemyAI enemy;  // Enemy reference to itself
 
-	public Rigidbody enemyShell;
-
-	public Transform FireTransform;
-
-	public bool playerInSight = false;
-
-	public bool isDead = false;
-
-	public EnemyAI enemy;
+	public bool isDead = false;  //Pretty sure this can be deleted
 
 	void Awake ()
 	{
 		// Set up the references.
+
+		//Find Player
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
-	//	playerHealth = player.GetComponent <PlayerHealth> ();
+		//	playerHealth = player.GetComponent <PlayerHealth> ();
 		//enemyHealth = GetComponent <EnemyHealth> ();
+
+		// Get own NavMeshAgent
 		nav = GetComponent <NavMeshAgent> ();
 
+		// Get Shells to fire
 		enemyShell = GameObject.FindGameObjectWithTag ("Rocket").GetComponent<Rigidbody> ();
 
+		// Get Trigger Zone to find enemy
 		triggerZone = GameObject.FindGameObjectWithTag ("EnemySight");
 
-		enemy = this;
+		// Enemy gets itself
+		enemy = this; 
 
-	}
+	} //End Awake()
 
 
 	void Update ()
@@ -53,10 +55,7 @@ public class EnemyAI : MonoBehaviour
 		//	nav.enabled = false;
 		//}
 
-
-
-
-	} 
+	} //End Update()
 
 
 	void OnTriggerEnter(Collider player)
@@ -64,7 +63,7 @@ public class EnemyAI : MonoBehaviour
 		playerInSight = true;
 		Debug.Log ("Firing at player");
 		fire ();
-	}
+	} //End OnTriggerEnter
 
 
 
@@ -91,17 +90,20 @@ public class EnemyAI : MonoBehaviour
 
 		Debug.Log ("Fired");
 
-	}
+	} //End fire()
 
 
 	public void kill()
 	{
 
+		//Destroy gameObject
 		Destroy (this.gameObject);
-		Debug.Log ("Killed hiim dead");
+
+		//Spawn seperate parts of tank with momentum to explode them out but make them triggers so they fall through ground than delete them
+
 		//Add particle effect and maybe spawn parts with outwards direction momentum
 	
-	}
+	} //End kill()
 
 
-}
+} //End EnemyAI

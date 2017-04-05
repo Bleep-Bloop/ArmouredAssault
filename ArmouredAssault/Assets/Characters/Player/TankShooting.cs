@@ -3,56 +3,47 @@ using UnityEngine.UI;
 
 public class TankShooting : MonoBehaviour
 {
-	public int m_PlayerNumber = 1;
-	// Used to identify the different players.
-	public Rigidbody m_Shell;
-	// Prefab of the shell.
-	public Transform m_FireTransform;
-	// A child of the tank where the shells are spawned.
-	public Slider m_AimSlider;
-	// A child of the tank that displays the current launch force.
+
+
+	public int m_PlayerNumber = 1;  // Used to identify the different players.
+	public Rigidbody m_Shell;  // Prefab of the shell.
+	public Transform m_FireTransform;  // A child of the tank where the shells are spawned.
+	public Slider m_AimSlider;  // A child of the tank that displays the current launch force.
+
 	//public AudioSource m_ShootingAudio;         // Reference to the audio source used to play the shooting audio. NB: different to the movement audio source.
 	//public AudioClip m_ChargingClip;            // Audio that plays when each shot is charging up.
 	//public AudioClip m_FireClip;                // Audio that plays when each shot is fired.
-	public float m_MinLaunchForce = 15f;
-	// The force given to the shell if the fire button is not held.
-	public float m_MaxLaunchForce = 30f;
-	// The force given to the shell if the fire button is held for the max charge time.
-	public float m_MaxChargeTime = 0.75f;
-	// How long the shell can charge for before it is fired at max force.
 
+	public float m_MinLaunchForce = 15f;  // The force given to the shell if the fire button is not held.
+	public float m_MaxLaunchForce = 30f;  // The force given to the shell if the fire button is held for the max charge time.
+	public float m_MaxChargeTime = 0.75f;  // How long the shell can charge for before it is fired at max force.
 
-	private string m_FireButton;
-	// The input axis that is used for launching shells.
-	private float m_CurrentLaunchForce;
-	// The force that will be given to the shell when the fire button is released.
-	private float m_ChargeSpeed;
-	// How fast the launch force increases, based on the max charge time.
-	private bool m_Fired;
-	// Whether or not the shell has been launched with this button press.
+	private string m_FireButton;  // The input axis that is used for launching shells.
+	private float m_CurrentLaunchForce;  // The force that will be given to the shell when the fire button is released.
+	private float m_ChargeSpeed;  // How fast the launch force increases, based on the max charge time.
+	private bool m_Fired;  // Whether or not the shell has been launched with this button press.
+	public bool fireButtonPressed = false;  //Wheter or not the fire button is being pressed
 
-
-	public bool fireButtonPressed = false;
-
-	public Button fireButton;
+	public Button fireButton; //UI Button for firing the cannon
 
 	private void OnEnable ()
 	{
 		// When the tank is turned on, reset the launch force and the UI
 		m_CurrentLaunchForce = m_MinLaunchForce;
 		m_AimSlider.value = m_MinLaunchForce;
-	}
+	
+	}//End OnEnable()
 
 
 	private void Start ()
 	{
-		// The fire axis is based on the player number.
-		//m_FireButton = "Fire" + m_PlayerNumber;
+		//For playing on PC
 		m_FireButton = "Fire1";
 
 		// The rate that the launch force charges up is the range of possible forces by the max charge time.
 		m_ChargeSpeed = (m_MaxLaunchForce - m_MinLaunchForce) / m_MaxChargeTime;
-	}
+	
+	}//End Start()
 
 
 	private void Update ()
@@ -92,7 +83,7 @@ public class TankShooting : MonoBehaviour
 		// ... launch the shell.
 		//	Fire ();
 		//}
-	}
+	}//End Update()
 
 
 	public void Fire ()
@@ -109,7 +100,8 @@ public class TankShooting : MonoBehaviour
 
 		// Set the shell's velocity to the launch force in the fire position's forward direction.
 		shellInstance.velocity = m_CurrentLaunchForce * m_FireTransform.forward;
-		;
+		;//Why is this extra semicolon here!! 
+
 
 		// Change the clip to the firing clip and play it.
 		//m_ShootingAudio.clip = m_FireClip;
@@ -119,30 +111,36 @@ public class TankShooting : MonoBehaviour
 		m_CurrentLaunchForce = m_MinLaunchForce;
 		Debug.Log ("Reset launch force");
 		m_Fired = false;
-	}
+	}//End Fire()
 
+	 
 	public void FireButtonPressed ()
 	{
-
 		fireButtonPressed = true;
-	}
-
+	}//End FireButtonPressed()
+		
 	public void FireButtonReleased ()
 	{
 		fireButtonPressed = false;
-	}
+	}//End FireButtonReleased()
 
 
 
-	public void OnCollisionEnter(Collision other)
+	public void OnCollisionEnter (Collision other)
 	{
-
+		//If your rocket enters the enemies' hitbox
 		if (other.gameObject.tag == "EnemyHitbox") {
-
-			Debug.Log ("Killed him");
+			//Destory him (gameObject) (Maybe call this in EnemyAi Death() so can spawn parts and explode them out to look better
 			Destroy (other.gameObject);
+
+			//Destroy Rocket
+
+			//Play Rocket Explosion soundeffect 
+
+			//Play Rockey Explosion partical effect
+
 		}
+	}//End OnCollisionEnter(Collision other )
 
-	}
 
-}
+}//End TankShooting

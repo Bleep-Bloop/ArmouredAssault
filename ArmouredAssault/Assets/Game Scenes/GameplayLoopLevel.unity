@@ -359,6 +359,22 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114499721626681954, guid: 32d5daefdc0fd244f87b18db23c5ae6f,
+        type: 2}
+      propertyPath: HeartSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300004, guid: ae8f490451c32fb498a847440f12331c,
+        type: 3}
+    - target: {fileID: 224922887459880866, guid: 32d5daefdc0fd244f87b18db23c5ae6f,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 224922887459880866, guid: 32d5daefdc0fd244f87b18db23c5ae6f,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32d5daefdc0fd244f87b18db23c5ae6f, type: 2}
   m_IsPrefabParent: 0

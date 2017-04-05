@@ -5,50 +5,50 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-	public int waveSize;
-	public int enemiesLeft;
+	public int waveSize; // How many enemies you must kill before spawning more
+	public int enemiesLeft; // Enemies left untill you hit respawn
 
-	public Transform enemyPrefab;
+	public Transform enemyPrefab; // Enemies to spawn
 
-	public int score;
-	public int count;
+	public int score; // Players score
+	public int count; // Count for wave/enemies
 
-	public Text scoreText;
-
-	public string blank ;
+	public Text scoreText; // For Text area for score
 
 	public void Awake () {
 
-		//Will carry over loads
+		//Carry GameManager over load screens
 		DontDestroyOnLoad (transform.gameObject);
+
+		// Reference to Canvas Text Component for holding score
 		scoreText = GetComponentInChildren<Text> ();
-		blank = " ";
+
+
+		//Setting waveSize to 2 enemies (before spawning more
 		waveSize = 2;
-	}
+	
+	} //End Awake()
 
 
 	// Use this for initialization
 	void Start () {
 		
-	}
+	} //End Start()
+
 
 	// Update is called once per frame
 	void Update () {
 
-		scoreText.text = blank;
-
-		//Change score to whatever it is
+		//Change GameManager ScoreTextArea to Currrent Score
 		scoreText.text = score.ToString();
 
-
+		// If you have killed required amount of enemies
 		if (count == waveSize) {
-			Debug.Log ("Sending more enemies");
 
-
-
+			// Spawn four more enemies (!*!*!*!*change 4 to variable with number of how much to spawn*!*!*!*!)
 			for (int i = 0; i < 4; i++)
 			{
-				Debug.Log ("Spawning an enemy");
+				//Spawn Enemy (!*!*!*!* Change Spawn Locations *!*!*!*!)
 				Instantiate(enemyPrefab, new Vector3(i * 2.0F, 0, 0), Quaternion.identity);
 			}
 
@@ -56,23 +56,18 @@ public class GameManager : MonoBehaviour {
 			count = 0;
 
 		}
-
-
-	}
+			
+	} //End Update ()
 
 
 	public void addScore(int incomingScore)
 	{
 		score = score + incomingScore;
-	}
+	} //End addScore()
 
 	public void addCount()
 	{
 		count = count + 1;
-	}
+	} //End addCount()
 
-
-
-
-
-}
+} //End GameManager

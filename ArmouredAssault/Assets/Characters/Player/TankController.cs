@@ -34,8 +34,6 @@ public class TankController : MonoBehaviour
 
 	public MeshRenderer playerMesh;
 
-
-
 	//possibly temp
 	private Vector3 inputDirection; //used to be inputVector
 
@@ -50,7 +48,7 @@ public class TankController : MonoBehaviour
 		//m_MovementAxisName = "Vertical";
 		//m_TurnAxisName = "Horizontal";
 
-	}
+	} //End Awake()
 
 
 	private void OnEnable ()
@@ -61,14 +59,15 @@ public class TankController : MonoBehaviour
 		// Also reset the input values.
 		m_MovementInputValue = 0f;
 		m_TurnInputValue = 0f;
-	}
+	
+	} //End OnEnable()
 
 
 	private void OnDisable ()
 	{
 		// When the tank is turned off, set it to kinematic so it stops moving.
 		m_Rigidbody.isKinematic = true;
-	}
+	} //End OnDisable()
 
 
 	private void Start ()
@@ -88,7 +87,8 @@ public class TankController : MonoBehaviour
 
 		// Store the original pitch of the audio source.
 		//m_OriginalPitch = m_MovementAudio.pitch;
-	}
+	
+	} //End Start()
 
 	/// <summary>
 	/// //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -110,7 +110,7 @@ public class TankController : MonoBehaviour
 			Death ();
 		}
 
-	}
+	} //End Update()
 
 
 	private void EngineAudio ()
@@ -138,7 +138,8 @@ public class TankController : MonoBehaviour
 			//	m_MovementAudio.Play();
 			//}
 		}
-	}
+
+	} //End EngineAudio()
 
 
 	private void FixedUpdate ()
@@ -146,12 +147,11 @@ public class TankController : MonoBehaviour
 		// Adjust the rigidbodies position and orientation in FixedUpdate.
 		Move ();
 		Turn ();
-	}
+	} //End FixedUpdate()
 
-	//public to put in button
+
 	public void Move ()
 	{
-
 
 		// Create a vector in the direction the tank is facing with a magnitude based on the input, speed and the time between frames.
 		Vector3 movement = transform.forward * m_MovementInputValue * m_Speed * Time.deltaTime;
@@ -159,10 +159,10 @@ public class TankController : MonoBehaviour
 		// Apply this movement to the rigidbody's position.
 		m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
 
+	} //End Move()
 
-	}
 
-	//public to put in button
+	//For some reason I cant delete this I will get errors
 	private void Turn ()
 	{
 		// Determine the number of degrees to be turned based on the input, speed and time between frames.
@@ -175,7 +175,8 @@ public class TankController : MonoBehaviour
 		m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation);
 
 		//Debug.Log (m_TurnInputValue);
-	}
+	} //End Turn
+
 
 	public void TurnClockwise()
 	{
@@ -187,10 +188,13 @@ public class TankController : MonoBehaviour
 
 		// Apply this rotation to the rigidbody's rotation.
 		m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation);
-	}
+	
+	} //End TurnClockwise()
+
 
 	public void TurnCounterClockwise()
 	{
+		// Determine the number of degrees to be turned based on the input, speed and time between frames.
 		float turn = -1 * m_TurnSpeed * Time.deltaTime;
 
 		// Make this into a rotation in the y axis.
@@ -198,48 +202,38 @@ public class TankController : MonoBehaviour
 
 		// Apply this rotation to the rigidbody's rotation.
 		m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation);
-	}
+	
+	} //End TurnCounterClockwise
+
 
 	public void MoveForward ()
 	{
-
-
-
 
 		Vector3 movement = transform.forward * 1 * m_Speed * Time.deltaTime;
 
 		m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
 
-		Debug.Log ("MOVING Forwards FROM BUTTON");
-	}
+	} //End MoveForward()
+
 
 	public void MoveBackwards ()
 	{
-
 		Vector3 movement = transform.forward * -1 * m_Speed * Time.deltaTime;
 
 		m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
 
-		Debug.Log ("MOVING Back FROM BUTTON");
-	}
+	} //MoveBackwards()
 
 	public void Damage()
 	{
 		currentHealth = currentHealth - 1;
-	}
+	} //End Damage()
 
 	public void Death()
 	{
 		Debug.Log ("YOU LOSE");
 		SceneManager.LoadScene ("MainMenuScene");
-	}
-
-
-
-	public void printstuff()
-	{
-		Debug.Log ("ITS CLICKING!!!!!!!!!!!!!!");
-	}
+	} //End Death
 
 
 }//End TankController

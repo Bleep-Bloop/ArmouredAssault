@@ -8,12 +8,13 @@ public class StartGame : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-	}
+	} //End Start()
 
 	public void loadLevel()
 	{
+		//Load GamePlayLoopLevel
 		SceneManager.LoadScene ("GameplayLoopLevel");
-		Debug.Log ("Starting Game");
-		
-	}
-}
+
+	} //End loadLevel()
+
+} //End StartGame
