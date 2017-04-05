@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MovementJoystickContainer
+  - MovementJoystick
+  - forwardButton
+  - backwardsButton
+  - clockwiseButton
+  - CounterClockwiseButton
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,8 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
 	private Image joystickImage;
 	private Vector3 inputDirection; //used to be inputVector
 
+	public TankController test;
+
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,8 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
 	public virtual void OnDrag(PointerEventData ped)
 	{
 		Debug.Log ("OnDrag");
+
+
 
 		Vector2 pos = Vector2.zero;
 		if (RectTransformUtility.ScreenPointToLocalPointInRectangle
