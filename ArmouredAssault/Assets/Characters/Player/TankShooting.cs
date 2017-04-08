@@ -10,8 +10,6 @@ public class TankShooting : MonoBehaviour
 	public Transform m_FireTransform;  // A child of the tank where the shells are spawned.
 	public Slider m_AimSlider;  // A child of the tank that displays the current launch force.
 
-	public Rigidbody shellInstance;
-
 	//public AudioSource m_ShootingAudio;         // Reference to the audio source used to play the shooting audio. NB: different to the movement audio source.
 	//public AudioClip m_ChargingClip;            // Audio that plays when each shot is charging up.
 	//public AudioClip m_FireClip;                // Audio that plays when each shot is fired.
@@ -97,7 +95,7 @@ public class TankShooting : MonoBehaviour
 		m_Fired = true;
 
 		// Create an instance of the shell and store a reference to it's rigidbody.
-		shellInstance =
+		Rigidbody shellInstance =
 			Instantiate (m_Shell, m_FireTransform.position, m_FireTransform.rotation) as Rigidbody;
 
 		// Set the shell's velocity to the launch force in the fire position's forward direction.
@@ -136,7 +134,6 @@ public class TankShooting : MonoBehaviour
 			Destroy (other.gameObject);
 
 			//Destroy Rocket
-			Destroy(shellInstance);
 
 			//Play Rocket Explosion soundeffect 
 
