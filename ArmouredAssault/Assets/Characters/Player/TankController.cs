@@ -104,7 +104,7 @@ public class TankController : MonoBehaviour
 		EngineAudio ();
 
 
-		HealthBar.sprite = HeartSprites[currentHealth];
+		///////////////////////////////////HealthBar.sprite = HeartSprites[currentHealth];
 
 		if (currentHealth == 0) {
 			Death ();
