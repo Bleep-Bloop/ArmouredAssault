@@ -41,6 +41,9 @@ public class EnemyHitbox : MonoBehaviour
 			//  Run kill() from EnemyAI
 			enemy.kill ();
 
+			//Destroy rocket
+			Destroy (other.gameObject);
+
 			// Reward 100 points to player's score
 			gameManager.addScore (100);
 

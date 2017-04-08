@@ -18,7 +18,15 @@ public class GameManager : MonoBehaviour {
 	public void Awake () {
 
 		//Carry GameManager over load screens
-		DontDestroyOnLoad (transform.gameObject);
+		//DontDestroyOnLoad (transform.gameObject);
+		DontDestroyOnLoad (this);
+
+		//Singletons beware (makes sure there is only one)
+		if (FindObjectsOfType(GetType()).Length > 1)
+		{
+			Destroy(gameObject);
+		}
+
 
 		// Reference to Canvas Text Component for holding score
 		scoreText = GetComponentInChildren<Text> ();
@@ -69,5 +77,10 @@ public class GameManager : MonoBehaviour {
 	{
 		count = count + 1;
 	} //End addCount()
+
+	public void clearCount()
+	{
+		count = 0;
+	}
 
 } //End GameManager
