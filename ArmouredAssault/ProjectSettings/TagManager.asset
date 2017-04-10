@@ -19,6 +19,20 @@ TagManager:
   - PlayerHitbox
   - GameManager
   - GameManagerHolder
+  - FirstTab
+  - SecondTab
+  - ThirdTab
+  - FirstPane
+  - SecondPane
+  - ThirdPane
+  - FourthPane
+  - FourthTab
+  - FifthPane
+  - SixthPane
+  - FifthTab
+  - SixthTab
+  - testPanel
+  - testButton
   layers:
   - Default
   - TransparentFX
