@@ -9,21 +9,21 @@ public class TabbedShopUI : MonoBehaviour {
 
 
 	public GameObject pane1;
-	//public GameObject pane2;
-	///public GameObject pane3;
-	//public GameObject pane4;
-	//public GameObject pane5;
-	//public GameObject pane6;
+	public GameObject pane2;
+	public GameObject pane3;
+	public GameObject pane4;
+	public GameObject pane5;
+	public GameObject pane6;
 
 
 	void Awake()
 	{
 		pane1 = GameObject.FindGameObjectWithTag ("FirstPane");
-	//	pane2 = GameObject.FindGameObjectWithTag ("SecondPane");
-	//	pane3 = GameObject.FindGameObjectWithTag ("ThirdPane");
-	//	pane4 = GameObject.FindGameObjectWithTag ("FourthPane");
-	//	pane5 = GameObject.FindGameObjectWithTag ("FifthPane");
-		//pane6 = GameObject.FindGameObjectWithTag ("SixthPane");
+		pane2 = GameObject.FindGameObjectWithTag ("SecondPane");
+		pane3 = GameObject.FindGameObjectWithTag ("ThirdPane");
+		pane4 = GameObject.FindGameObjectWithTag ("FourthPane");
+		pane5 = GameObject.FindGameObjectWithTag ("FifthPane");
+		pane6 = GameObject.FindGameObjectWithTag ("SixthPane");
 
 	}
 
@@ -42,6 +42,7 @@ public class TabbedShopUI : MonoBehaviour {
 		//pane6.gameObject.SetActive (false);
 
 		deactivateAllPanes ();
+		showPane1 ();
 
 	}
 	
@@ -57,11 +58,11 @@ public class TabbedShopUI : MonoBehaviour {
 	{
 		//Except the first panel
 		pane1.gameObject.SetActive (false);
-	//	pane2.gameObject.SetActive (false);
-		//pane3.gameObject.SetActive (false);
-		//pane4.gameObject.SetActive (false);
-		//pane5.gameObject.SetActive (false);
-		//pane6.gameObject.SetActive (false);
+		pane2.gameObject.SetActive (false);
+		pane3.gameObject.SetActive (false);
+		pane4.gameObject.SetActive (false);
+		pane5.gameObject.SetActive (false);
+		pane6.gameObject.SetActive (false);
 
 	}
 
@@ -74,14 +75,14 @@ public class TabbedShopUI : MonoBehaviour {
 		pane1.gameObject.SetActive (true);
 
 		//Hide others
-		//pane2.gameObject.SetActive (false);
-		//pane3.gameObject.SetActive (false);
-		//pane4.gameObject.SetActive (false);
-		//pane5.gameObject.SetActive (false);
-		//pane6.gameObject.SetActive (false);
+		pane2.gameObject.SetActive (false);
+		pane3.gameObject.SetActive (false);
+		pane4.gameObject.SetActive (false);
+		pane5.gameObject.SetActive (false);
+		pane6.gameObject.SetActive (false);
 
 	}
-	/*
+
 	public void showPane2()
 	{
 		Debug.Log ("Showing Pane 2");
@@ -165,5 +166,5 @@ public class TabbedShopUI : MonoBehaviour {
 	}
 
 
-	*/
+
 }
