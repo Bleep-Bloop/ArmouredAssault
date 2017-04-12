@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -9,6 +10,9 @@ public class GameManager : MonoBehaviour {
 	public int enemiesLeft; // Enemies left untill you hit respawn
 
 	public Transform enemyPrefab; // Enemies to spawn
+
+	//public GameObject playerSpawn;
+	public Transform playerSpawn;
 
 	public int score; // Players score
 	public int count; // Count for wave/enemies
@@ -26,6 +30,8 @@ public class GameManager : MonoBehaviour {
 		{
 			Destroy(gameObject);
 		}
+
+		playerSpawn = GameObject.FindGameObjectWithTag ("playerSpawnPoint").transform;
 
 
 		// Reference to Canvas Text Component for holding score
@@ -82,5 +88,55 @@ public class GameManager : MonoBehaviour {
 	{
 		count = 0;
 	}
+
+
+
+
+
+	void OnEnable()
+	{
+		//Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
+		SceneManager.sceneLoaded += OnLevelFinishedLoading;
+	}  //End OnEnable()
+
+	void OnDisable()
+	{
+		//Tell our 'OnLevelFinishedLoading' function to stop listening for a scene change as soon as this script is disabled. Remember to always have an unsubscription for every delegate you subscribe to!
+		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+	}  //End OnEnable()
+
+	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+	{
+		Debug.Log("Level Loaded");
+		Debug.Log(scene.name);
+		//Debug.Log(mode);
+
+		//Regrab playerSpawnPoint
+		playerSpawn = GameObject.FindGameObjectWithTag ("playerSpawnPoint").transform;
+
+		Debug.Log ("New Spawnpoint Found");
+
+
+	}  //End OnEnable()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 } //End GameManager

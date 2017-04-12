@@ -18,6 +18,8 @@ public class TabbedShopUI : MonoBehaviour {
 
 	void Awake()
 	{
+
+		//Get GameObjects
 		pane1 = GameObject.FindGameObjectWithTag ("FirstPane");
 		pane2 = GameObject.FindGameObjectWithTag ("SecondPane");
 		pane3 = GameObject.FindGameObjectWithTag ("ThirdPane");
@@ -25,48 +27,35 @@ public class TabbedShopUI : MonoBehaviour {
 		pane5 = GameObject.FindGameObjectWithTag ("FifthPane");
 		pane6 = GameObject.FindGameObjectWithTag ("SixthPane");
 
-	}
+	}  //End Awake()
 
 	// Use this for initialization
 	void Start () {
 
-
-
-
-		//panes must be active at start of script but than deactivate them
-		//deactivateAllPanes();
-		//pane2.gameObject.SetActive (false);
-		//pane3.gameObject.SetActive (false);
-		//pane4.gameObject.SetActive (false);
-		//pane5.gameObject.SetActive (false);
-		//pane6.gameObject.SetActive (false);
-
 		deactivateAllPanes ();
 		showPane1 ();
 
-	}
+	}  //End Start()
 	
 	// Update is called once per frame
 	void Update () {
 
-		//deactivateAllPanes ();
-
-	}
 
 
+	}  //End Update()
+		
 	public void deactivateAllPanes()
 	{
-		//Except the first panel
 		pane1.gameObject.SetActive (false);
 		pane2.gameObject.SetActive (false);
 		pane3.gameObject.SetActive (false);
 		pane4.gameObject.SetActive (false);
 		pane5.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
+	
+	}  //End deactivateAllPanes()
+		
 
-	}
-
-	//function to show tab 1 (Default Shown)
 	public void showPane1()
 	{
 		Debug.Log ("Showing Pane 1");
@@ -81,7 +70,7 @@ public class TabbedShopUI : MonoBehaviour {
 		pane5.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
 
-	}
+	}  //End showPane1
 
 	public void showPane2()
 	{
@@ -95,7 +84,7 @@ public class TabbedShopUI : MonoBehaviour {
 		pane5.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
 
-	}
+	}  //End showPane2()
 
 	public void showPane3()
 	{
@@ -110,7 +99,7 @@ public class TabbedShopUI : MonoBehaviour {
 		pane5.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
 
-	}
+	}  //End showPane3()
 
 	public void showPane4()
 	{
@@ -125,7 +114,7 @@ public class TabbedShopUI : MonoBehaviour {
 		pane3.gameObject.SetActive (false);
 		pane5.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
-	}
+	}  //End showPane4
 
 	public void showPane5()
 	{
@@ -140,8 +129,7 @@ public class TabbedShopUI : MonoBehaviour {
 		pane4.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
 
-
-	}
+	}  //End showPane5()
 
 	public void showPane6()
 	{
@@ -153,17 +141,11 @@ public class TabbedShopUI : MonoBehaviour {
 		pane3.gameObject.SetActive (false);
 		pane4.gameObject.SetActive (false);
 		pane5.gameObject.SetActive (false);
-	}
+	}  //End showPane6()
 
 
-	//function to show tab 2
-	//function to show tab 3
-	//function to show tab 4
 
-	public void printSTUFF()
-	{
-		Debug.Log ("Access is workin");
-	}
+
 
 
 

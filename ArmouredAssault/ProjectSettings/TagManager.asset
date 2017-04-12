@@ -33,6 +33,7 @@ TagManager:
   - SixthTab
   - testPanel
   - testButton
+  - playerSpawnPoint
   layers:
   - Default
   - TransparentFX
