@@ -34,6 +34,7 @@ TagManager:
   - testPanel
   - testButton
   - playerSpawnPoint
+  - purchaseTank1Button
   layers:
   - Default
   - TransparentFX

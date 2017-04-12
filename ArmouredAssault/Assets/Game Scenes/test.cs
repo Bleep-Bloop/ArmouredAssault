@@ -34,7 +34,7 @@ public class test : MonoBehaviour {
 	{
 
 		testPane.gameObject.SetActive (false);
-		Debug.Log ("IT FUCKING CLICKED");
+
 	}
 
 

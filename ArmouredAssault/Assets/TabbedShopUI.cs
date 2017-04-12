@@ -15,6 +15,8 @@ public class TabbedShopUI : MonoBehaviour {
 	public GameObject pane5;
 	public GameObject pane6;
 
+	public Button purchaseTank1Button;
+
 
 	void Awake()
 	{
@@ -26,6 +28,11 @@ public class TabbedShopUI : MonoBehaviour {
 		pane4 = GameObject.FindGameObjectWithTag ("FourthPane");
 		pane5 = GameObject.FindGameObjectWithTag ("FifthPane");
 		pane6 = GameObject.FindGameObjectWithTag ("SixthPane");
+
+		//purchaseTank1Button = GameObject.FindGameObjectWithTag ("purchaseTank1Button");
+
+		purchaseTank1Button = GameObject.FindGameObjectWithTag ("purchaseTank1Button").GetComponent<Button> ();  // ("Play").GetComponent<Button>();
+
 
 	}  //End Awake()
 
@@ -52,6 +59,8 @@ public class TabbedShopUI : MonoBehaviour {
 		pane4.gameObject.SetActive (false);
 		pane5.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
+
+		purchaseTank1Button.gameObject.SetActive (false);
 	
 	}  //End deactivateAllPanes()
 		
@@ -62,6 +71,7 @@ public class TabbedShopUI : MonoBehaviour {
 
 		//Show Pane
 		pane1.gameObject.SetActive (true);
+		purchaseTank1Button.gameObject.SetActive (true);
 
 		//Hide others
 		pane2.gameObject.SetActive (false);
@@ -83,6 +93,7 @@ public class TabbedShopUI : MonoBehaviour {
 		pane4.gameObject.SetActive (false);
 		pane5.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
+		purchaseTank1Button.gameObject.SetActive (false);
 
 	}  //End showPane2()
 
@@ -98,6 +109,7 @@ public class TabbedShopUI : MonoBehaviour {
 		pane4.gameObject.SetActive (false);
 		pane5.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
+		purchaseTank1Button.gameObject.SetActive (false);
 
 	}  //End showPane3()
 
@@ -114,6 +126,7 @@ public class TabbedShopUI : MonoBehaviour {
 		pane3.gameObject.SetActive (false);
 		pane5.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
+		purchaseTank1Button.gameObject.SetActive (false);
 	}  //End showPane4
 
 	public void showPane5()
@@ -128,6 +141,7 @@ public class TabbedShopUI : MonoBehaviour {
 		pane3.gameObject.SetActive (false);
 		pane4.gameObject.SetActive (false);
 		pane6.gameObject.SetActive (false);
+		purchaseTank1Button.gameObject.SetActive (false);
 
 	}  //End showPane5()
 
@@ -141,6 +155,7 @@ public class TabbedShopUI : MonoBehaviour {
 		pane3.gameObject.SetActive (false);
 		pane4.gameObject.SetActive (false);
 		pane5.gameObject.SetActive (false);
+		purchaseTank1Button.gameObject.SetActive (false);
 	}  //End showPane6()
 
 

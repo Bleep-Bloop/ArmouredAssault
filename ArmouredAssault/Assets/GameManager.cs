@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 
 	public Transform enemyPrefab; // Enemies to spawn
 
+	public Transform playerTank;
+
 	//public GameObject playerSpawn;
 	public Transform playerSpawn;
 
@@ -18,6 +20,9 @@ public class GameManager : MonoBehaviour {
 	public int count; // Count for wave/enemies
 
 	public Text scoreText; // For Text area for score
+
+	public string currentEquippedTank;
+
 
 	public void Awake () {
 
@@ -31,7 +36,9 @@ public class GameManager : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		playerSpawn = GameObject.FindGameObjectWithTag ("playerSpawnPoint").transform;
+		//done in onlevelloaded
+		//playerSpawn = GameObject.FindGameObjectWithTag ("playerSpawnPoint").transform;
+
 
 
 		// Reference to Canvas Text Component for holding score
@@ -117,6 +124,37 @@ public class GameManager : MonoBehaviour {
 		Debug.Log ("New Spawnpoint Found");
 
 
+		if (currentEquippedTank == "Player1") {
+
+
+		}
+		if (currentEquippedTank == "Player2") {
+
+
+		}
+		if (currentEquippedTank == "Player3") {
+
+
+		}
+		if (currentEquippedTank == "Player4") {
+
+
+		}
+
+
+
+		//come back here
+		//playerTank = GameObject.FindGameObjectWithTag ("Player").transform;
+
+		//spawn player 
+		spawnPlayer();
+
+		//might have to have all of them in the scene but deactivated or something 
+
+
+
+		Debug.Log ("Player Spawned");
+
 	}  //End OnEnable()
 
 
@@ -125,18 +163,65 @@ public class GameManager : MonoBehaviour {
 
 
 
+	public void spawnPlayer()
+	{
+		//Get Currently Equipped player
+		//spawn on playerSpawn
+		//might have to reload health 
+
+
+		Debug.Log ("Spawning");
+		//Instantiate(enemyPrefab, new Vector3(i * 2.0F, 0, 0), Quaternion.identity);
+		//This WORKS!!!  Instantiate(enemyPrefab, playerSpawn.transform);
+		//Instantiate(playerTank, playerSpawn.transform);
+
+
+	}
+
+
+	//make sure prefabs transforms are set to 0 0 0 than spawn just like spawnPlayer
+	public void spawnEnemies() 
+	{
+
+
+	}
+
+
+
+	public void whichTank()
+	{
+		//make puublic variable string currently equpped tank
+
+		//Have 4 different tanks with each a different tag (player1, player2, player3, player4,
+
+		//In the equipment ui script have an assign equpped tank tag to public string currentlyEquppedTank
+
+		//Instantiate( currentlyEquppedTank, playerSppawn.transform); 	
 
 
 
 
 
+	}
 
 
-
-
-
-
-
-
+	//Call these in the equip screen when clicked
+	public void equipTank1()
+	{
+		currentEquippedTank = "Player1";
+		Debug.Log ("Tank 1 Equipped");
+	}
+	public void equipTank2()
+	{
+		currentEquippedTank = "Player2";
+	}
+	public void equipTank3()
+	{
+		currentEquippedTank = "Player3";
+	}
+	public void equipTank4()
+	{
+		currentEquippedTank = "Player4";
+	}
 
 } //End GameManager
