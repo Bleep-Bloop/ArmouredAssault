@@ -35,6 +35,13 @@ TagManager:
   - testButton
   - playerSpawnPoint
   - purchaseTank1Button
+  - fallingPlatforms
+  - fallingPlatformTrigger
+  - PlayerTank2
+  - DeathBox
+  - PauseMenu
+  - ClosePause
+  - ControlsImage
   layers:
   - Default
   - TransparentFX
