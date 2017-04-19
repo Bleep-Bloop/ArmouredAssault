@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - MovementJoystickContainer
+  - MovementJoystick
+  - forwardButton
+  - backwardsButton
+  - clockwiseButton
+  - CounterClockwiseButton
+  - Enemy
+  - EnemySight
+  - EnemyRocket
+  - EnemyHitbox
+  - Rocket
+  - PlayerRocket
+  - PlayerHitbox
+  - GameManager
+  - GameManagerHolder
+  - FirstTab
+  - SecondTab
+  - ThirdTab
+  - FirstPane
+  - SecondPane
+  - ThirdPane
+  - FourthPane
+  - FourthTab
+  - FifthPane
+  - SixthPane
+  - FifthTab
+  - SixthTab
+  - testPanel
+  - testButton
+  - playerSpawnPoint
+  - purchaseTank1Button
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
