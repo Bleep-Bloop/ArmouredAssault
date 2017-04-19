@@ -35,6 +35,16 @@ TagManager:
   - testButton
   - playerSpawnPoint
   - purchaseTank1Button
+  - hideCanvas
+  - panel1buys
+  - panel2buys
+  - panel3buys
+  - panel4buys
+  - panel5buys
+  - panel6buys
+  - playerCamera
+  - MainMenuButton
+  - SplashScreen
   layers:
   - Default
   - TransparentFX

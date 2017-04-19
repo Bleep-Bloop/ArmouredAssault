@@ -24,7 +24,9 @@ public class EnemyHitbox : MonoBehaviour
 		scoreText = gameManager.GetComponentInChildren<Text> ();
 
 	}//End Start()
-	
+
+
+
 	// Update is called once per frame
 	void Update ()
 	{

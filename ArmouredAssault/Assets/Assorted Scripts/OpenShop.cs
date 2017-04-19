@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class OpenShop : MonoBehaviour {
 
+	public GameManager gameManager;
+
 	// Use this for initialization
 	void Start () {
-		
+	
+		gameManager = GameManager.FindObjectOfType<GameManager> ();
+
 	}
 	
 	// Update is called once per frame
@@ -21,6 +25,7 @@ public class OpenShop : MonoBehaviour {
 
 		Debug.Log ("Opening Shop");
 		//Load GamePlayLoopLevel
+		gameManager.destroyPropTank();
 		SceneManager.LoadScene ("Shop");
 
 		//gameManager.clearCount ();

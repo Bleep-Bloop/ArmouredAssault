@@ -48,6 +48,15 @@ public class TankController : MonoBehaviour
 		//m_MovementAxisName = "Vertical";
 		//m_TurnAxisName = "Horizontal";
 
+		//if (FindObjectsOfType(GetType()).Length > 1)
+		//{
+		//	Destroy(gameObject);
+		//}
+
+
+	
+
+
 	} //End Awake()
 
 
@@ -76,7 +85,7 @@ public class TankController : MonoBehaviour
 		//m_MovementAxisName = "Vertical" + m_PlayerNumber;
 		//m_TurnAxisName = "Horizontal" + m_PlayerNumber;
 
-		gameManager = GetComponent<GameManager> ();
+		gameManager = GameManager.FindObjectOfType<GameManager> ();
 
 
 
@@ -226,6 +235,7 @@ public class TankController : MonoBehaviour
 
 	public void Damage()
 	{
+		Debug.Log ("OUCH");
 		currentHealth = currentHealth - 1;
 	} //End Damage()
 

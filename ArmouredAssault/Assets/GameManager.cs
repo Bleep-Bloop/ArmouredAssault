@@ -13,15 +13,59 @@ public class GameManager : MonoBehaviour {
 
 	public Transform playerTank;
 
+	public GameObject equippedTank;
+
+	public GameObject playerCamera;
+
+	//public GameObject mainMenuButton;
+
+
 	//public GameObject playerSpawn;
-	public Transform playerSpawn;
+	//public Transform playerSpawn;
 
 	public int score; // Players score
 	public int count; // Count for wave/enemies
 
 	public Text scoreText; // For Text area for score
 
-	public string currentEquippedTank;
+	public GameObject currentEquippedTank;
+
+	public GameObject defaultTanks;
+
+	public GameObject canvas1;
+	public GameObject canvas2;
+
+	public Scene currentScene;
+	public string currentSceneName;
+
+
+	//All tanks available in game
+	//make array later
+	public GameObject tank1;
+	public GameObject tank2;
+	public GameObject tank3;
+
+	public TankController playerTankController;
+	public TankShooting playerTankShooting;
+
+	public bool canUseTank1 = true;
+	public bool canUseTank2 = false;
+	public bool canUseTank3 = false;
+
+
+	//make a function getPlayerSpawn and call on level load every time scene is loaded
+	public GameObject playerSpawn;
+
+
+
+	public bool button11 = false;	public bool button21 = false;	public bool button31 = false;
+	public bool button12 = false;	public bool button22 = false;	public bool button32 = false;
+	public bool button13 = false;	public bool button23 = false;	public bool button33 = false;
+
+	public bool button41 = false;	public bool button51 = false;	public bool button61 = false;
+	public bool button42 = false;	public bool button52 = false;	public bool button62 = false;
+	public bool button43 = false;	public bool button53 = false;	public bool button63 = false;
+
 
 
 	public void Awake () {
@@ -29,6 +73,11 @@ public class GameManager : MonoBehaviour {
 		//Carry GameManager over load screens
 		//DontDestroyOnLoad (transform.gameObject);
 		DontDestroyOnLoad (this);
+
+		addScore (1000);
+
+		//mainMenuButton = GameObject.FindGameObjectWithTag ("MainMenuButton");
+	
 
 		//Singletons beware (makes sure there is only one)
 		if (FindObjectsOfType(GetType()).Length > 1)
@@ -53,7 +102,11 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
+
+
+
+
 	} //End Start()
 
 
@@ -86,6 +139,11 @@ public class GameManager : MonoBehaviour {
 		score = score + incomingScore;
 	} //End addScore()
 
+	public void subtractScore(int incomingScore)
+	{
+		score = score - incomingScore;
+	}
+
 	public void addCount()
 	{
 		count = count + 1;
@@ -100,62 +158,9 @@ public class GameManager : MonoBehaviour {
 
 
 
-	void OnEnable()
-	{
-		//Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon as this script is enabled.
-		SceneManager.sceneLoaded += OnLevelFinishedLoading;
-	}  //End OnEnable()
-
-	void OnDisable()
-	{
-		//Tell our 'OnLevelFinishedLoading' function to stop listening for a scene change as soon as this script is disabled. Remember to always have an unsubscription for every delegate you subscribe to!
-		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
-	}  //End OnEnable()
-
-	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
-	{
-		Debug.Log("Level Loaded");
-		Debug.Log(scene.name);
-		//Debug.Log(mode);
-
-		//Regrab playerSpawnPoint
-		playerSpawn = GameObject.FindGameObjectWithTag ("playerSpawnPoint").transform;
-
-		Debug.Log ("New Spawnpoint Found");
-
-
-		if (currentEquippedTank == "Player1") {
-
-
-		}
-		if (currentEquippedTank == "Player2") {
-
-
-		}
-		if (currentEquippedTank == "Player3") {
-
-
-		}
-		if (currentEquippedTank == "Player4") {
-
-
-		}
 
 
 
-		//come back here
-		//playerTank = GameObject.FindGameObjectWithTag ("Player").transform;
-
-		//spawn player 
-		spawnPlayer();
-
-		//might have to have all of them in the scene but deactivated or something 
-
-
-
-		Debug.Log ("Player Spawned");
-
-	}  //End OnEnable()
 
 
 
@@ -186,6 +191,66 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+	void OnLevelWasLoaded()
+	{
+		Debug.Log ("level loaded");
+		getSpawnPoint ();
+
+		//test instantiate tank2
+		Instantiate(defaultTanks, playerSpawn.transform.position, playerSpawn.transform.rotation);
+		Debug.Log ("Tank Spawned");
+
+
+		playerTankController = FindObjectOfType<TankController>();
+		playerTankShooting = FindObjectOfType<TankShooting>();
+		playerTankController.enabled = false;
+		playerTankShooting.enabled = false;
+
+		currentScene = SceneManager.GetActiveScene ();
+		currentSceneName = currentScene.name;
+
+		canvas1 = GameObject.FindGameObjectWithTag ("hideCanvas");
+
+		playerCamera = GameObject.FindGameObjectWithTag ("playerCamera");
+
+		if (currentSceneName == "MainMenuScene") {
+
+			canvas1.SetActive (false);
+			playerCamera.SetActive (false);
+			//mainMenuButton.SetActive (false);
+		}
+
+		if (currentSceneName == "GameplayLoopLevel") {
+
+			playerTankController.enabled = true;
+			playerTankShooting.enabled = true;
+			playerCamera.SetActive (true);
+		}
+
+		if (currentSceneName == "Shop") {
+
+			canvas1.SetActive (false);
+			playerCamera.SetActive (false);
+			//mainMenuButton.SetActive (true);
+		}
+
+
+		//if (GameObject.FindGameObjectsWithTag ("hideCanvas").Length > 1) {
+
+			//Debug.Log ("2MANY!!!!!!!!!");
+		//}
+
+
+
+	}
+
+	public void getSpawnPoint()
+	{
+
+		Debug.Log ("GOT SPAWN POINT");
+		playerSpawn = GameObject.FindGameObjectWithTag ("playerSpawnPoint");
+
+	}
 
 
 	public void whichTank()
@@ -201,27 +266,138 @@ public class GameManager : MonoBehaviour {
 
 
 
+	}
+
+
+
+
+	public void hurt()
+	{
+		playerTankController.currentHealth = playerTankController.currentHealth - 1;
+		Debug.Log ("Ouch");
+	}
+
+
+
+
+	public void hideAllTanks()
+	{
+
+
+
+
 
 	}
 
 
-	//Call these in the equip screen when clicked
+	public void button11status(){
+
+		button11 = true;
+
+		Debug.Log ("working");
+	}
+
+	public void button12status(){
+		button12 = true;
+	}
+
+	public void button13status(){
+		button13 = true;
+	
+	}
+
+
+	public void button21status(){
+		button21 = true;
+	}
+	public void button22status(){
+		button22 = true;
+	}
+	public void button23status(){
+		button23 = true;
+	}
+
+
+
+	public void button31status(){
+		button31 = true;
+	
+	}
+	public void button32status(){
+	
+		button32 = true;
+	
+	}
+	public void button33status(){
+		button33 = true;
+	}
+
+
+	public void button41status(){
+		button41 = true;
+	}
+	public void button42status(){
+		button42 = true;
+	}
+	public void button43status(){
+		button43 = true;
+	}
+
+
+	public void button51status(){
+		button51 = true;
+	}
+	public void button52status(){
+		button52 = true;
+	}
+	public void button53status(){
+		button53 = true;
+		}
+
+	public void button61status(){
+		button61 = true;
+	}
+	public void button62status(){
+		button62 = true;
+	}
+	public void button63status(){
+		button63 = true;
+	}
+
+
 	public void equipTank1()
 	{
-		currentEquippedTank = "Player1";
-		Debug.Log ("Tank 1 Equipped");
+		if (canUseTank1 == true) {
+			Debug.Log ("Equipping Tank1");
+			defaultTanks = tank1;
+		} else {
+			Debug.Log ("Buy First");
+		}
 	}
+
 	public void equipTank2()
 	{
-		currentEquippedTank = "Player2";
+		if (canUseTank2 == true) {
+			defaultTanks = tank2;
+		} else {
+			Debug.Log ("Buy First");
+		}
 	}
+
 	public void equipTank3()
 	{
-		currentEquippedTank = "Player3";
+		if (canUseTank3 == true) {
+			Debug.Log ("Equipping Tank3");
+			defaultTanks = tank3;
+		} else {
+			Debug.Log ("Buy First");
+		}
 	}
-	public void equipTank4()
+
+	public void destroyPropTank()
 	{
-		currentEquippedTank = "Player4";
+		//
+
 	}
 
 } //End GameManager

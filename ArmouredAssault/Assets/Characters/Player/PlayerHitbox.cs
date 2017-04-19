@@ -24,13 +24,19 @@ public class PlayerHitbox : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
 	} //End Update()
 
 
 	public void OnTriggerEnter(Collider other)
 	{
+
+		Debug.Log ("TRIGGER");
+
 		//If GameObject entering TriggerZone is a rocket
 		if (other.tag == "Rocket") {
+
+			Debug.Log ("Hit");
 
 			// Run TankController.Damage()
 			player.Damage();

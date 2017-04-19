@@ -22,7 +22,7 @@ public class purchaseTank1 : MonoBehaviour {
 
 		gameManager = GameManager.FindObjectOfType<GameManager> ();
 
-		gameManager.equipTank1 ();
+
 
 	}
 

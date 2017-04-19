@@ -1,0 +1,25 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Assorted Scripts\SplashScreenScene.cs">
+    <Files>
+      <File FileName="Assets\GameManager.cs" Line="20" Column="4" />
+      <File FileName="Assets\Assorted Scripts\SplashScreenScene.cs" Line="37" Column="33" />
+      <File FileName="Assets\Game Scenes\purchaseTank1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Characters\Player\TankController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Characters\Enemies\EnemyAI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Characters\Enemies\EnemyHitbox.cs" Line="1" Column="1" />
+      <File FileName="Assets\Characters\Player\TankShooting.cs" Line="1" Column="1" />
+      <File FileName="Assets\KillTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Characters\Player\PlayerHitbox.cs" Line="1" Column="1" />
+      <File FileName="Assets\TabbedShopUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Game Scenes\printverify.cs" Line="1" Column="1" />
+      <File FileName="Assets\Game Scenes\CommunicateWithGameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Game Scenes\ExitShop.cs" Line="1" Column="1" />
+      <File FileName="Assets\Assorted Scripts\OpenShop.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -105,18 +105,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
-    m_FontSize: 12
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 62
+    m_MinSize: 0
+    m_MaxSize: 119
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $$$
+  m_Text: 1000
 --- !u!114 &114786206363886584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,7 +128,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf97d3bec605b3647b0447af76230789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  waveSize: 2
+  enemiesLeft: 0
+  enemyPrefab: {fileID: 4342094997769618, guid: c21cb286e8aa1f04386f58195705e8ed,
+    type: 2}
+  playerTank: {fileID: 0}
+  equippedTank: {fileID: 0}
+  playerCamera: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  score: 1000
+  count: 0
+  scoreText: {fileID: 114771722639862278}
+  currentEquippedTank: {fileID: 0}
+  defaultTanks: {fileID: 1078849681655394, guid: f28d3496de0664c4fbb0891e5c849ac4,
+    type: 2}
+  canvas1: {fileID: 0}
+  canvas2: {fileID: 0}
+  currentSceneName: Shop
+  tank1: {fileID: 1078849681655394, guid: f28d3496de0664c4fbb0891e5c849ac4, type: 2}
+  tank2: {fileID: 1078849681655394, guid: fbf4c1bce395f09448e6ec0c2fd9fd72, type: 2}
+  tank3: {fileID: 1078849681655394, guid: b87b7bbbc0c0b4046b2ebf62b3e99acd, type: 2}
+  playerTankController: {fileID: 0}
+  playerTankShooting: {fileID: 0}
+  canUseTank1: 1
+  canUseTank2: 0
+  canUseTank3: 0
+  playerSpawn: {fileID: 0}
+  button11: 0
+  button21: 0
+  button31: 0
+  button12: 0
+  button22: 0
+  button32: 0
+  button13: 0
+  button23: 0
+  button33: 0
+  button41: 0
+  button51: 0
+  button61: 0
+  button42: 0
+  button52: 0
+  button62: 0
+  button43: 0
+  button53: 0
+  button63: 0
 --- !u!222 &222691237781387176
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -153,7 +196,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &224375736956485938
 RectTransform:

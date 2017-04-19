@@ -166,8 +166,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745338780915354}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.0324955, y: 0.39, z: 46.1}
   m_LocalScale: {x: 0.92892665, y: 0.5685822, z: 1.4240118}
   m_Children:
   - {fileID: 4182053770676146}
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69b09996dc8a244d88fe92202d079ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnemy: {fileID: 0}
+  thisEnemy: {fileID: 114908464644241190}
   canFire: 1
 --- !u!114 &114276340813850978
 MonoBehaviour:
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   scoreText: {fileID: 0}
-  enemy: {fileID: 0}
+  enemy: {fileID: 114908464644241190}
 --- !u!114 &114908464644241190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,12 +473,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  nav: {fileID: 0}
+  nav: {fileID: 195742106140027232}
   triggerZone: {fileID: 1747705287918116}
   enemyShell: {fileID: 0}
   FireTransform: {fileID: 4513452764701846}
   playerInSight: 0
-  enemy: {fileID: 0}
+  enemy: {fileID: 114908464644241190}
   isDead: 0
 --- !u!136 &136192959528085244
 CapsuleCollider:

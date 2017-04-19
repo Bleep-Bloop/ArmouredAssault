@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
 		// Set up the references.
 
 		//Find Player
-		player = GameObject.FindGameObjectWithTag ("Player").transform;
+
 		//	playerHealth = player.GetComponent <PlayerHealth> ();
 		//enemyHealth = GetComponent <EnemyHealth> ();
 
@@ -39,6 +39,11 @@ public class EnemyAI : MonoBehaviour
 
 	} //End Awake()
 
+
+	void Start()
+	{
+		player = GameObject.FindGameObjectWithTag ("Player").transform;
+	}
 
 	void Update ()
 	{

@@ -7,6 +7,9 @@ public class TankShooting : MonoBehaviour
 
 	public int m_PlayerNumber = 1;  // Used to identify the different players.
 	public Rigidbody m_Shell;  // Prefab of the shell.
+
+	public GameObject playerShell;
+
 	public Transform m_FireTransform;  // A child of the tank where the shells are spawned.
 	public Slider m_AimSlider;  // A child of the tank that displays the current launch force.
 
@@ -42,6 +45,9 @@ public class TankShooting : MonoBehaviour
 
 		// The rate that the launch force charges up is the range of possible forces by the max charge time.
 		m_ChargeSpeed = (m_MaxLaunchForce - m_MinLaunchForce) / m_MaxChargeTime;
+
+		playerShell = GameObject.FindGameObjectWithTag ("PlayerRocket");
+		m_Shell = playerShell.GetComponent<Rigidbody> ();
 	
 	}//End Start()
 
