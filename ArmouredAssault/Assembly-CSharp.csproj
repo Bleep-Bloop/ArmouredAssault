@@ -46,9 +46,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Assorted Scripts\CommunicateWithGameManager.cs" />
+     <Compile Include="Assets\Assorted Scripts\ExitShop.cs" />
+     <Compile Include="Assets\Assorted Scripts\GameManager.cs" />
+     <Compile Include="Assets\Assorted Scripts\KillTrigger.cs" />
      <Compile Include="Assets\Assorted Scripts\OpenShop.cs" />
      <Compile Include="Assets\Assorted Scripts\SplashScreenScene.cs" />
      <Compile Include="Assets\Assorted Scripts\StartGame.cs" />
+     <Compile Include="Assets\Assorted Scripts\TabbedShopUI.cs" />
+     <Compile Include="Assets\Assorted Scripts\print.cs" />
+     <Compile Include="Assets\Assorted Scripts\printverify.cs" />
+     <Compile Include="Assets\Assorted Scripts\purchaseTank1.cs" />
+     <Compile Include="Assets\Assorted Scripts\test.cs" />
      <Compile Include="Assets\Characters\Enemies\EnemyAI.cs" />
      <Compile Include="Assets\Characters\Enemies\EnemyHitbox.cs" />
      <Compile Include="Assets\Characters\Enemies\EnemySIght.cs" />
@@ -57,14 +66,6 @@
      <Compile Include="Assets\Characters\Player\TankController.cs" />
      <Compile Include="Assets\Characters\Player\TankShooting.cs" />
      <Compile Include="Assets\Characters\Player\VirtualJoystick.cs" />
-     <Compile Include="Assets\Game Scenes\CommunicateWithGameManager.cs" />
-     <Compile Include="Assets\Game Scenes\ExitShop.cs" />
-     <Compile Include="Assets\Game Scenes\printverify.cs" />
-     <Compile Include="Assets\Game Scenes\purchaseTank1.cs" />
-     <Compile Include="Assets\Game Scenes\test.cs" />
-     <Compile Include="Assets\GameManager.cs" />
-     <Compile Include="Assets\KillTrigger.cs" />
-     <Compile Include="Assets\TabbedShopUI.cs" />
      <Compile Include="Assets\_Downloaded-Unused-Assets\Scripts\ActiveStateToggler.cs" />
      <Compile Include="Assets\_Downloaded-Unused-Assets\Scripts\ApplicationManager.cs" />
      <Compile Include="Assets\_Downloaded-Unused-Assets\Scripts\ChangeColor.cs" />
@@ -76,12 +77,9 @@
      <Compile Include="Assets\_Downloaded-Unused-Assets\Scripts\ScrollDetailTexture.cs" />
      <Compile Include="Assets\_Downloaded-Unused-Assets\Scripts\ShowSliderValue.cs" />
      <Compile Include="Assets\_Downloaded-Unused-Assets\Scripts\TiltWindow.cs" />
-     <Compile Include="Assets\print.cs" />
-     <None Include="Assets\right one.txt" />
      <None Include="Assets\UI Assets\Fonts\Jupiter\LICENSE.txt" />
      <None Include="Assets\UI Assets\Textures and Sprites\SF UI\Background\LICENSE.txt" />
-     <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
-     <None Include="Assets\testtest.txt" />
+     <None Include="Assets\Game Scenes\Scene Creation\Materials\UI-Default-No-Alpha.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

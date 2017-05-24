@@ -135,7 +135,6 @@ MonoBehaviour:
   playerTank: {fileID: 0}
   equippedTank: {fileID: 0}
   playerCamera: {fileID: 0}
-  mainMenuButton: {fileID: 0}
   score: 1000
   count: 0
   scoreText: {fileID: 114771722639862278}
